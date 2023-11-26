@@ -1,0 +1,104 @@
+
+.sidebar-container {
+    background-color: #3498db;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    height: 80vh;
+  }
+  
+  .user-details {
+    text-align: center;
+  }
+  
+  .user-details h2 {
+    margin-bottom: 10px;
+  }
+  
+  .detail-item {
+    margin: 8px 0;
+    font-size: 14px;
+    text-align: left;
+  }
+  
+/* YourComponent.css (or the main CSS file) */
+
+.home-main {
+    display: flex;
+  }
+  
+  .sidebar-container {
+    width: 250px; /* Set a fixed width for the sidebar */
+    background-color: #3498db; /* Blue color */
+    padding: 20px;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .home-container {
+    flex-grow: 1; /* Allow the feed container to grow and take the remaining space */
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .feed-card {
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    color: #000; /* Text color for feed content */
+  }
+  
+  .feed-content {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .user-info {
+    font-size: 14px;
+    color: #7f8c8d;
+  }
+  
+  .user-name {
+    font-weight: bold;
+  }
+  
+  .user-role {
+    font-style: italic;
+  }
+  
+
+/*   new css */
+
+/* Sidebar.css */
+
+.sidebar-container {
+    width: 250px;
+    background-color: #3498db;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-details {
+    text-align: center;
+  }
+  
+  .user-details h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  
+  .detail-item {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .detail-item strong {
+    display: block;
+    font-size: 14px;
+    color: #bdc3c7;
+  }
+  

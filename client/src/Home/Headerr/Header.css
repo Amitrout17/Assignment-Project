@@ -1,0 +1,37 @@
+/* Header.css */
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-family: 'Arial', sans-serif;
+    margin-top: 15px;
+}
+
+.feed-input {
+    padding: 8px;
+    width: 60%;
+    font-size: 14px;
+    margin-right: 10px;
+    border-radius: 8px;
+    border: none;
+    height: 2pc;
+    border: 1px solid;
+}
+
+.add-feed-button {
+    background-color: #2ecc71;
+    /* Green color */
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.add-feed-button:hover {
+    background-color: #27ae60;
+    /* Darker green on hover */
+}
