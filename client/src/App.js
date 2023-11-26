@@ -6,7 +6,7 @@ import Navbar from "./Home/Navbar/Navbar.js";
 import Home from "./Home/Feed/Home.js";
 import Header from "./Home/Headerr/Header.js";
 import Connections from "./Networks/Connections.js";
-
+import MyConnections from "./Networks/Myconnections.js";
 
 function App() {
   return (
@@ -46,6 +46,15 @@ function App() {
             <>
               <Navbar />
               <Connections />
+            </>
+          }
+        />
+        <Route
+          path="/networks/personal"
+          element={
+            <>
+              <Navbar />
+              <MyConnections />
             </>
           }
         />

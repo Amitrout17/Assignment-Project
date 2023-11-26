@@ -112,3 +112,72 @@ exports.allUsers = async (req, res) => {
     });
   }
 };
+
+exports.addConnections = async (req, res) => {
+  try {
+    const user = await User.findOne({
+      _id: req.user.id,
+    });
+
+    if (req.body.id === req.user.id) {
+      return res.status(403).json({
+        success: false,
+        message: "Already Exist",
+      });
+    } else {
+      const newConnection = {
+        userId: req.body.id,
+      };
+
+      const oldConnections = user.connections;
+
+      user.connections = [...oldConnections, newConnection];
+
+      await user.save();
+
+      res.status(200).json({
+        success: true,
+        user,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error_msg: error.message,
+    });
+  }
+};
+
+exports.viewConnections = async (req, res) => {
+  try {
+    const user = await User.findOne({
+      _id: req.user.id,
+    });
+
+    var connections = user.connections.map((item) => item.userId);
+
+    var connectionDetails = await Promise.all(
+      connections.map(async (item) => {
+        const data = await User.findOne({
+          _id: item,
+        });
+        return {
+          name: data.name,
+          email: data.email,
+          organization: data.organization,
+          role: data.role,
+        };
+      })
+    );
+
+    res.status(200).json({
+      success: true,
+      connectionDetails,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error_msg: error.message,
+    });
+  }
+};

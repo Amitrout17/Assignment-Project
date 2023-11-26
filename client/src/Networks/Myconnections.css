@@ -1,0 +1,37 @@
+/* MyConnections.css */
+
+.my-connections-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .connection-card {
+    background-color: #ecf0f1;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .connection-card h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  
+  .connection-card p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .no-connections-message {
+    color: #e74c3c; /* Red color */
+    font-size: 16px;
+    text-align: center;
+    margin: 20px 0;
+  }
+  

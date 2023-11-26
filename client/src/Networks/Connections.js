@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Connections.css";
+import { useNavigate } from "react-router-dom";
 
 function Connections() {
   const [allUsers, setAllUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAllUsers = async () => {
@@ -21,9 +24,25 @@ function Connections() {
     fetchAllUsers();
   }, []);
 
-  const handleConnect = (userId) => {
+  const handleConnect = async (userId) => {
     console.log(`Connect with user ${userId}`);
-    // You can add logic here to handle the connection process
+    await axios
+      .post(
+        "http://localhost:4000/api/v1/add/connections",
+        {
+          id: userId,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+        alert("Connection Added !");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(err.response.data.message);
+      });
   };
 
   const handleSearch = (e) => {
@@ -46,7 +65,13 @@ function Connections() {
         />
       </div>
 
-      <button>View My Connections</button>
+      <button
+        onClick={() => {
+          navigate("/networks/personal");
+        }}
+      >
+        View My Connections
+      </button>
 
       {filteredUsers.map((user) => (
         <div key={user._id} className="user-card">
