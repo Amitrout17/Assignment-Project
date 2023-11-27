@@ -13,7 +13,8 @@ const Home = () => {
         const response = await axios.get(
           "http://localhost:4000/api/v1/feeds/all"
         );
-        setFeeds(response.data.feed);
+        // Reverse the order of feeds
+        setFeeds(response.data.feed.reverse());
       } catch (error) {
         console.error("Error fetching feeds:", error.message);
       }
