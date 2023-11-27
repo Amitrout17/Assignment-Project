@@ -1,8 +1,13 @@
 const express = require("express");
-const { messageControllerMain } = require("../controller/messageController");
+const {
+  messageControllerMain,
+  getPreviousMessages,
+} = require("../controller/messageController");
+const isAuthenticated = require("../middleware/auth");
 
 const router = express.Router();
 
-router.route("/message/new").post(messageControllerMain);
+router.route("/message/new").post(isAuthenticated, messageControllerMain);
+router.route("/message/get").post(isAuthenticated, getPreviousMessages);
 
 module.exports = router;

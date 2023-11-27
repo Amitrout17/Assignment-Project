@@ -1,24 +1,59 @@
 import React, { useState, useEffect } from "react";
 import "../Chat/chatMain.css";
+import axios from "axios";
 
 const ChatMain = ({ data }) => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
 
   useEffect(() => {
-    // Similar to previous code for connecting and consuming messages
-    // ...
+    const fetchMessages = async () => {
+      try {
+        const response = await axios.post(
+          "http://localhost:4000/api/v1/message/get",
+          {
+            recieverId: data.id,
+          },
+          {
+            withCredentials: true,
+          }
+        );
 
-    return () => {
-      // Cleanup code or disconnect from the message queue if needed
+        setMessages(response.data.prevMessage.message);
+      } catch (error) {
+        alert("No message To load");
+        setMessages([]);
+        console.log(error);
+      }
     };
-  }, []); // Run only once when the component mounts
+
+    fetchMessages();
+  }, [data.id]);
+
+  console.log(data.id);
 
   const sendMessage = async () => {
-    // Similar to previous code for sending messages
-    // ...
-
-    setInputMessage("");
+    await axios
+      .post(
+        "http://localhost:4000/api/v1/message/new",
+        {
+          recieverId: data.id,
+          recieverName: data.name,
+          message: inputMessage,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        setInputMessage("");
+        setMessages(response.data.isExist.message);
+      })
+      .catch((error) => {
+        alert("Some Error Occured");
+        console.log(error);
+      });
   };
 
   return (
@@ -27,21 +62,23 @@ const ChatMain = ({ data }) => {
         <p>{`Chatting With ${data && data.name}`}</p>
       </div>
       <div className="chat-display">
-        {messages.map((msg, index) => (
-          <div key={index} className="message">
-            {msg}
-          </div>
-        ))}
+        {messages &&
+          messages.map((msg, index) => (
+            <div key={index} className="message">
+              <p>
+                <strong>{msg.sender}</strong>: {msg.message}
+              </p>
+            </div>
+          ))}
       </div>
+
       <div className="chat-input">
         <input
           type="text"
           placeholder="Type a message"
-          value={data && data.name}
+          value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
         />
-        {console.log(data)}
-
         <button onClick={sendMessage}>Send</button>
       </div>
     </div>

@@ -162,6 +162,7 @@ exports.viewConnections = async (req, res) => {
           _id: item,
         });
         return {
+          id: data._id,
           name: data.name,
           email: data.email,
           organization: data.organization,

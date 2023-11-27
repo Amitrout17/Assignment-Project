@@ -6,13 +6,9 @@ const notificationScheema = new mongoose.Schema({
     ref: "user",
     required: true,
   },
-  notificatioins: [
-    {
-      message: {
-        type: String,
-      },
-    },
-  ],
+  message: {
+    type: String,
+  },
 });
 
-module.exports = mongoose.model("notification", notificationScheema);
+module.exports = mongoose.model("notifications", notificationScheema);

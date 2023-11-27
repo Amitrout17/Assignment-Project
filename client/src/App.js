@@ -8,6 +8,7 @@ import Header from "./Home/Headerr/Header.js";
 import Connections from "./Networks/Connections.js";
 import MyConnections from "./Networks/Myconnections.js";
 import ChatSidebar from "./Home/Chat/ChatSidebar.js";
+import Notification from "./Home/notifications/Notifications.js";
 
 function App() {
   return (
@@ -65,6 +66,15 @@ function App() {
             <>
               <Navbar />
               <ChatSidebar />
+            </>
+          }
+        />
+        <Route
+          path="/notifications"
+          element={
+            <>
+              <Navbar />
+              <Notification />
             </>
           }
         />

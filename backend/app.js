@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const userRoute = require("./routes/userRoutes");
 const feedsRoutes = require("./routes/feedsRoutes");
 const messageRoutes = require("./routes/messageRoutes");
+const notificaionRoutes = require("./routes/notificationRoutes");
 
 const cors = require("cors");
 
@@ -33,6 +34,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api/v1", userRoute);
 app.use("/api/v1", feedsRoutes);
 app.use("/api/v1", messageRoutes);
-
+app.use("/api/v1", notificaionRoutes);
 
 module.exports = app;

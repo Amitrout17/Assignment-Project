@@ -58,7 +58,7 @@ function ChatSidebar() {
         )}
       </div>
       <div className="chat-main-2">
-        <ChatMain data={currentState} />
+        {currentState && <ChatMain data={currentState} />}
       </div>
     </div>
   );
