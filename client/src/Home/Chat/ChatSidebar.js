@@ -6,6 +6,8 @@ import ChatMain from "./ChatMain";
 function ChatSidebar() {
   const [connectionDetails, setConnectionDetails] = useState([]);
 
+  const [currentState, setcurrentState] = useState();
+
   useEffect(() => {
     const fetchConnections = async () => {
       try {
@@ -42,14 +44,21 @@ function ChatSidebar() {
                     {connection.organization}
                   </p>
                 </div>
-                <button className="chat-button">Chat</button>
+                <button
+                  className="chat-button"
+                  onClick={() => {
+                    setcurrentState(connection);
+                  }}
+                >
+                  Chat
+                </button>
               </li>
             ))}
           </ul>
         )}
       </div>
       <div className="chat-main-2">
-        <ChatMain />
+        <ChatMain data={currentState} />
       </div>
     </div>
   );

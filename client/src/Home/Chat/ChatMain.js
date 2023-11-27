@@ -1,10 +1,9 @@
-// ChatMain.js
-import React, { useState, useEffect } from 'react';
-import '../Chat/chatMain.css';
+import React, { useState, useEffect } from "react";
+import "../Chat/chatMain.css";
 
-const ChatMain = () => {
+const ChatMain = ({ data }) => {
   const [messages, setMessages] = useState([]);
-  const [inputMessage, setInputMessage] = useState('');
+  const [inputMessage, setInputMessage] = useState("");
 
   useEffect(() => {
     // Similar to previous code for connecting and consuming messages
@@ -19,11 +18,14 @@ const ChatMain = () => {
     // Similar to previous code for sending messages
     // ...
 
-    setInputMessage('');
+    setInputMessage("");
   };
 
   return (
     <div className="chat-container">
+      <div>
+        <p>{`Chatting With ${data && data.name}`}</p>
+      </div>
       <div className="chat-display">
         {messages.map((msg, index) => (
           <div key={index} className="message">
@@ -35,9 +37,11 @@ const ChatMain = () => {
         <input
           type="text"
           placeholder="Type a message"
-          value={inputMessage}
+          value={data && data.name}
           onChange={(e) => setInputMessage(e.target.value)}
         />
+        {console.log(data)}
+
         <button onClick={sendMessage}>Send</button>
       </div>
     </div>

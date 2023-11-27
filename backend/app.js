@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 //routes Import
 const userRoute = require("./routes/userRoutes");
 const feedsRoutes = require("./routes/feedsRoutes");
+const messageRoutes = require("./routes/messageRoutes");
 
 const cors = require("cors");
 
@@ -31,5 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Routes
 app.use("/api/v1", userRoute);
 app.use("/api/v1", feedsRoutes);
+app.use("/api/v1", messageRoutes);
+
 
 module.exports = app;
