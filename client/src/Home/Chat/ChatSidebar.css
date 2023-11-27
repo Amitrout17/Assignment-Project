@@ -1,0 +1,72 @@
+.chat-sidebar-container {
+    background-color: #f8f9fa;
+    /* Use a neutral background color */
+    color: #333;
+    /* Text color */
+    padding: 15px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    height: 100vh;
+}
+
+.chat-sidebar-container h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.connections-list {
+    list-style: none;
+    padding: 0;
+}
+
+.connection-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #d1d1d1;
+    /* Use a light border color */
+}
+
+.connection-details {
+    flex-grow: 1;
+}
+
+.connection-name {
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.connection-role,
+.connection-organization {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.chat-button {
+    background-color: #007bff;
+    /* Use a primary color for the chat button */
+    color: #fff;
+    padding: 8px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.chat-button:hover {
+    background-color: #0056b3;
+    /* Darker color on hover */
+}
+
+.chat-main {
+    display: flex;
+}
+
+.chat-main-2 {
+    width: 70%;
+}
