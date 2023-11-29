@@ -1,7 +1,3 @@
-# Your Application Name
-
-## Prerequisites
-
 Before running this application, ensure that you have the following installed on your system:
 
 - [Node.js](https://nodejs.org/en/) - JavaScript runtime
