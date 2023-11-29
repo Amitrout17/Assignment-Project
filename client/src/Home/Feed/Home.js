@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../Feed/Home.css";
 import Sidebar from "../sidebar/Sidebar";
+import Recommendation from "./Recomendation";
 
 const Home = () => {
   const [feeds, setFeeds] = useState([]);
@@ -51,6 +52,7 @@ const Home = () => {
             </div>
           ))}
         </div>
+        <Recommendation />
       </div>
     </>
   );

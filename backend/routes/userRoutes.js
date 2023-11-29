@@ -6,6 +6,7 @@ const {
   allUsers,
   addConnections,
   viewConnections,
+  userRecomendation,
 } = require("../controller/userController");
 const { upload } = require("../config/fileupload");
 
@@ -19,5 +20,6 @@ router.get("/user/details", isAuthenticated, getUserDetails);
 router.get("/users/all", allUsers);
 router.post("/add/connections", isAuthenticated, addConnections);
 router.get("/connections/all", isAuthenticated, viewConnections);
+router.get("/user/recomendation", isAuthenticated, userRecomendation);
 
 module.exports = router;

@@ -185,3 +185,45 @@ exports.viewConnections = async (req, res) => {
     });
   }
 };
+
+exports.userRecomendation = async (req, res) => {
+  try {
+    const userId = req.user._id;
+
+    const user = await User.findById(userId).populate("connections.userId");
+
+    const userConnections = user.connections.map(
+      (connection) => connection.userId
+    );
+
+    const connectionsOfConnections = await User.find({
+      _id: { $in: userConnections },
+    }).populate("connections.userId");
+
+    const uniqueConnections = connectionsOfConnections.reduce(
+      (acc, connectionOfConnection) => {
+        connectionOfConnection.connections.forEach((connection) => {
+          const connectionId = connection.userId.toString();
+          if (
+            !userConnections.includes(connectionId) &&
+            connectionId !== userId
+          ) {
+            acc.push(connection.userId);
+          }
+        });
+        return acc;
+      },
+      []
+    );
+
+    const uniqueConnectionsData = await User.find({
+      _id: { $in: uniqueConnections, $ne: userId },
+    });
+
+    res.json(uniqueConnectionsData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+

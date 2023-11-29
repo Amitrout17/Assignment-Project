@@ -1,0 +1,46 @@
+.recommendation-sidebar {
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recommendation-sidebar h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .recommendation-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .recommendation-sidebar li {
+    margin-bottom: 20px;
+  }
+  
+  .recommendation-sidebar .user-details {
+    margin-bottom: 10px;
+  }
+  
+  .recommendation-sidebar strong {
+    color: #333;
+  }
+  
+  .recommendation-sidebar hr {
+    border: 0.5px solid #ddd;
+  }
+  
+  .recommendation-sidebar p {
+    color: #666;
+  }
+  
+  .recommendation-sidebar .user-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
