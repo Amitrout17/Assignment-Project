@@ -3,6 +3,8 @@ const JWT = require("jsonwebtoken");
 
 exports.regiserUser = async (req, res, next) => {
   try {
+    const filePath = `c:/Users/amitr/Desktop/linkedIn/backend/uploads/${req.files[0].filename}`;
+    console.log(filePath);
     const user = await User.create({
       name: req.body.name,
       email: req.body.email,
@@ -10,6 +12,7 @@ exports.regiserUser = async (req, res, next) => {
       phone: req.body.phone,
       organization: req.body.organization,
       role: req.body.role,
+      image: `http://localhost:4000/uploads/${req.files[0].filename}`,
     });
 
     const jwtData = {

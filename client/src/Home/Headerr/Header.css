@@ -1,37 +1,72 @@
-/* Header.css */
-
 .header-container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 10px;
-    font-family: 'Arial', sans-serif;
-    margin-top: 15px;
-}
-
-.feed-input {
-    padding: 8px;
-    width: 60%;
-    font-size: 14px;
-    margin-right: 10px;
-    border-radius: 8px;
-    border: none;
-    height: 2pc;
-    border: 1px solid;
-}
-
-.add-feed-button {
-    background-color: #2ecc71;
-    /* Green color */
-    color: #fff;
-    padding: 10px;
-    cursor: pointer;
-    border: none;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid #e1e1e1;
+  }
+  
+  .upload-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  #fileBTN-upload {
+    display: none; /* Hide the default file input */
+  }
+  
+  .image-preview {
+    max-width: 100%;
+    max-height: 150px;
+    margin-top: 16px;
+  }
+  
+  .content-section {
+    flex: 1;
+    margin-left: 16px;
+    margin-right: 55px;
+    transform: translate(10px, 10px);
+  }
+  
+  .feed-input {
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 12px;
+    border: 1px solid #e1e1e1;
     border-radius: 4px;
     font-size: 16px;
-}
-
-.add-feed-button:hover {
-    background-color: #27ae60;
-    /* Darker green on hover */
-}
+  }
+  
+  .add-feed-button {
+    background-color: #0077b5;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .add-feed-button:hover {
+    background-color: #00548c;
+  }
+  
+  /* Style the file upload button */
+  #fileBTN-upload-label {
+    background-color: #0077b5;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  #fileBTN-upload-label:hover {
+    background-color: #00548c;
+  }
+  
+  #fileBTN-upload-label:active {
+    background-color: #004070;
+  }
+  

@@ -7,12 +7,13 @@ const {
   addConnections,
   viewConnections,
 } = require("../controller/userController");
+const { upload } = require("../config/fileupload");
 
 const router = express.Router();
 
 const isAuthenticated = require("../middleware/auth");
 
-router.route("/register").post(regiserUser);
+router.route("/register").post(upload, regiserUser);
 router.route("/login").post(loginUser);
 router.get("/user/details", isAuthenticated, getUserDetails);
 router.get("/users/all", allUsers);

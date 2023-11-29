@@ -11,31 +11,35 @@ const Register = () => {
   const [organization, setOrganization] = useState("");
   const [role, setRole] = useState("");
   const navigate = useNavigate();
+  const [files, setFiles] = useState();
 
   const roles = ["Student", "Employee", "Employee-Human Resource"];
 
   const register = async () => {
+    const formData = new FormData();
+
+    formData.append("files", files);
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("phone", phone);
+    formData.append("organization", organization);
+    formData.append("role", role);
+
     try {
       const response = await axios.post(
         "http://localhost:4000/api/v1/register",
-        {
-          name,
-          email,
-          password,
-          phone,
-          organization,
-          role,
-        },
+        formData,
         {
           withCredentials: true,
         }
       );
 
       console.log("Success:", response.data);
-      alert("Login Sucessfully");
+      alert("Sucessfully Registered");
       navigate("/");
     } catch (error) {
-      console.error("Error:", error.message);
+      console.log("Error:", error);
       alert("Error during registration. Please try again.");
     }
   };
@@ -95,6 +99,21 @@ const Register = () => {
           </option>
         ))}
       </select>
+
+      <p>Upload Image</p>
+      <input
+        type="file"
+        id="fileBTN-uploadd"
+        accept="image/*"
+        onChange={(e) => {
+          e.preventDefault();
+          setFiles(e.target.files[0]);
+        }}
+        style={{
+          marginBottom: "10px",
+        }}
+      />
+
       <button className="register-button" onClick={register}>
         Register
       </button>

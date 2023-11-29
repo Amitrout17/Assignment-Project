@@ -7,14 +7,12 @@ const Home = () => {
   const [feeds, setFeeds] = useState([]);
 
   useEffect(() => {
-    // Fetch feeds from the API
     const fetchFeeds = async () => {
       try {
         const response = await axios.get(
           "http://localhost:4000/api/v1/feeds/all"
         );
-        // Reverse the order of feeds
-        setFeeds(response.data.feed.reverse());
+        setFeeds(response && response.data.feed.reverse());
       } catch (error) {
         console.error("Error fetching feeds:", error.message);
       }
@@ -30,14 +28,26 @@ const Home = () => {
         <div className="home-container">
           {feeds.map((feed) => (
             <div key={feed._id} className="feed-card">
+              <div className="user-info">
+                {feed.userImage && (
+                  <img
+                    src={feed.userImage}
+                    alt="User"
+                    className="user-image-2"
+                  />
+                )}
+                <div className="user-details">
+                  <span className="user-name">{feed.userName}</span>
+                  <span className="user-role">{feed.userRole}</span>
+                  <span className="user-organization">
+                    {feed.userOrganization}
+                  </span>
+                </div>
+              </div>
+              {feed.image && (
+                <img src={feed.image} alt="Feed" className="feed-image" />
+              )}
               <p className="feed-content">{feed.content}</p>
-              <p className="user-info">
-                <span className="user-name">{feed.userName}</span> |{" "}
-                <span className="user-role">{feed.userRole}</span> |{" "}
-                <span className="user-organization">
-                  {feed.userOrganization}
-                </span>
-              </p>
             </div>
           ))}
         </div>

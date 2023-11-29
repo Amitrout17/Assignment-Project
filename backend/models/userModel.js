@@ -25,6 +25,9 @@ const userScheema = new mongoose.Schema({
     type: String,
     required: [true, "please Enter a valid address"],
   },
+  image: {
+    type: String,
+  },
   connections: [
     {
       userId: {

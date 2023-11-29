@@ -3,6 +3,8 @@ const user = require("../models/userModel");
 
 exports.newFeeds = async (req, res) => {
   try {
+    const filePath = `c:/Users/amitr/Desktop/linkedIn/backend/uploads/${req.files[0].filename}`;
+
     const findUser = await user.findOne({
       _id: req.user._id,
     });
@@ -12,6 +14,8 @@ exports.newFeeds = async (req, res) => {
       userName: findUser.name,
       userOrganization: findUser.organization,
       userRole: findUser.role,
+      image: `http://localhost:4000/uploads/${req.files[0].filename}`,
+      userImage: req.user.image,
     });
     res.status(200).json({
       sucess: true,

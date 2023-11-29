@@ -1,5 +1,3 @@
-// Sidebar.js
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../sidebar/sidebar.css"; // Import your CSS file
@@ -30,6 +28,10 @@ const Sidebar = () => {
     <>
       {userDetails && (
         <div className="sidebar-container">
+          <div className="user-image">
+            <img src={userDetails.image} alt="" />
+          </div>
+
           <div className="user-details">
             <h2>{userDetails.name}</h2>
             <p className="detail-item">

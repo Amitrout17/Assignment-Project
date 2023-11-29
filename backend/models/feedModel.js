@@ -9,11 +9,17 @@ const feedScheema = new mongoose.Schema({
   userName: {
     type: String,
   },
-  userRole:{
-    type:String
+  userRole: {
+    type: String,
   },
   userOrganization: {
     type: String,
+  },
+  image: {
+    type: String,
+  },
+  userImage:{
+    type:String,
   },
   content: {
     type: String,
